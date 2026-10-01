@@ -1,33 +1,30 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Code } from 'lucide-react';
+import { Play } from 'lucide-react';
 
 const projects = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce solution with real-time inventory management, payment processing, and an intuitive admin dashboard.',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    image: 'https://images.unsplash.com/photo-1557821552-1710514967ed?q=80&w=2000&auto=format&fit=crop',
-    github: '#',
-    live: '#'
+    title: 'Brand Promotional Video',
+    description: 'A high-energy promotional video featuring dynamic motion graphics and fast-paced cuts for a tech startup.',
+    tags: ['After Effects', 'Premiere Pro', 'Motion Design'],
+    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2000&auto=format&fit=crop',
+    link: '#'
   },
   {
     id: 2,
-    title: 'AI Dashboard',
-    description: 'Analytics dashboard leveraging machine learning models to provide predictive insights for business data.',
-    tags: ['Vue', 'Python', 'FastAPI', 'PostgreSQL'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop',
-    github: '#',
-    live: '#'
+    title: '3D Product Animation',
+    description: 'Photorealistic 3D rendering and animation for a consumer electronics product launch.',
+    tags: ['Blender', 'DaVinci Resolve', '3D Modeling'],
+    image: 'https://images.unsplash.com/photo-1616423640778-28d1b53229bd?q=80&w=2000&auto=format&fit=crop',
+    link: '#'
   },
   {
     id: 3,
-    title: 'Social Connect',
-    description: 'Real-time social networking application focusing on privacy and local community engagement.',
-    tags: ['Next.js', 'GraphQL', 'Prisma', 'Socket.io'],
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop',
-    github: '#',
-    live: '#'
+    title: 'Social Media Ad Campaign',
+    description: 'A series of engaging, short-form video ads optimized for TikTok and Instagram Reels.',
+    tags: ['Video Editing', 'Sound Design', 'Color Grading'],
+    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop',
+    link: '#'
   }
 ];
 
@@ -52,11 +49,8 @@ const Projects = () => {
             <div className="relative w-full h-60 overflow-hidden">
               <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-[#0a0a0e]/70 flex justify-center items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <a href={project.live} className="w-12 h-12 rounded-full flex justify-center items-center text-white bg-white/10 hover:bg-[#2BD764] hover:scale-110 transition-all backdrop-blur-sm">
-                  <ExternalLink size={20} />
-                </a>
-                <a href={project.github} className="w-12 h-12 rounded-full flex justify-center items-center text-white bg-white/10 hover:bg-[#2BD764] hover:scale-110 transition-all backdrop-blur-sm">
-                  <Code size={20} />
+                <a href={project.link} className="w-12 h-12 rounded-full flex justify-center items-center text-white bg-white/10 hover:bg-[#2BD764] hover:scale-110 transition-all backdrop-blur-sm">
+                  <Play size={20} className="ml-1" />
                 </a>
               </div>
             </div>

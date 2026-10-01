@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="md:col-span-1">
             <h2 className="text-2xl font-black tracking-tighter mb-4 text-white uppercase">Portfolio<span className="text-[#2BD764]">.</span></h2>
             <p className="text-gray-400 font-sans text-sm leading-relaxed mb-6 max-w-xs">
-              Specializing in cinematic motion design, 3D animation, and visually stunning web development.
+              Specializing in cinematic motion design, 3D animation, and visually stunning video productions.
             </p>
             <a href="mailto:hello@johndoe.com" className="inline-flex items-center gap-3 text-white font-bold hover:text-[#2BD764] transition-colors border-b border-transparent hover:border-[#2BD764] pb-1">
               <Mail size={16} className="text-[#2BD764]" /> hello@johndoe.com

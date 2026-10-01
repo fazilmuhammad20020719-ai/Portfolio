@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Code, User } from 'lucide-react';
+import { Menu, X, Play, User } from 'lucide-react';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -77,9 +77,9 @@ const Navbar = () => {
           </div>
           
           <div className="flex items-center gap-3 ml-2 pl-4 xl:ml-4 border-l border-white/10">
-            <a href="https://github.com" target="_blank" rel="noreferrer" 
+            <a href="https://youtube.com" target="_blank" rel="noreferrer" 
                className="flex items-center justify-center w-8 h-8 rounded-full bg-white/5 hover:bg-[#2BD764] hover:-translate-y-0.5 transition-all text-white">
-              <Code size={16} />
+              <Play size={16} />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noreferrer"
                className="flex items-center justify-center w-8 h-8 rounded-full bg-white/5 hover:bg-[#2BD764] hover:-translate-y-0.5 transition-all text-white">
@@ -118,9 +118,9 @@ const Navbar = () => {
           </div>
           
           <div className="flex justify-center gap-4 pt-4 border-t border-white/10 mt-2">
-            <a href="https://github.com" target="_blank" rel="noreferrer" 
+            <a href="https://youtube.com" target="_blank" rel="noreferrer" 
                className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-[#2BD764] transition-all text-white">
-              <Code size={20} />
+              <Play size={20} />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noreferrer"
                className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-[#2BD764] transition-all text-white">

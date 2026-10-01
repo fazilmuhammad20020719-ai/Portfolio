@@ -11,7 +11,7 @@ const posts = [
     category: "React"
   },
   {
-    title: "The Future of Web Design in 2026",
+    title: "The Future of Motion Design in 2026",
     excerpt: "Exploring the upcoming trends in UI/UX design, from glassmorphism to spatial computing interfaces.",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000&auto=format&fit=crop",
     date: "Apr 22, 2026",
@@ -33,7 +33,7 @@ const Blog = () => {
     <section id="blog" className="py-32 container mx-auto px-6 max-w-6xl">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold mb-4">Latest <span className="text-gradient">Articles</span></h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto">Insights, tutorials, and thoughts on software development and design.</p>
+        <p className="text-lg text-gray-400 max-w-2xl mx-auto">Insights, tutorials, and thoughts on video production and design.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

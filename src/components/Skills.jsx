@@ -1,15 +1,16 @@
 import { motion, animate } from 'framer-motion';
 import { useRef } from 'react';
-import { Film, Palette, Box, Code2, Globe, Sparkles } from 'lucide-react';
+import { Film, Palette, PenTool, Bot, Sparkles } from 'lucide-react';
 
 const skillCategories = [
   {
-    category: "Motion Graphics",
+    category: "Motion Graphics & Video Editing",
     icon: <Film className="w-6 h-6" />,
     skills: [
       { name: "After Effects", percentage: 95 },
       { name: "Premiere Pro", percentage: 90 },
-      { name: "DaVinci Resolve", percentage: 85 }
+      { name: "DaVinci Resolve", percentage: 85 },
+      { name: "Blender (3D)", percentage: 80 }
     ]
   },
   {
@@ -17,50 +18,49 @@ const skillCategories = [
     icon: <Palette className="w-6 h-6" />,
     skills: [
       { name: "Photoshop", percentage: 90 },
-      { name: "Illustrator", percentage: 85 }
+      { name: "Illustrator", percentage: 85 },
+      { name: "UI/UX Figma", percentage: 85 },
+      { name: "Canva", percentage: 90 }
     ]
   },
   {
-    category: "3D Design",
-    icon: <Box className="w-6 h-6" />,
+    category: "Content Creation",
+    icon: <PenTool className="w-6 h-6" />,
     skills: [
-      { name: "Blender", percentage: 80 }
+      { name: "Storyboarding (Boords)", percentage: 85 },
+      { name: "Scriptwriting & Planning", percentage: 90 },
+      { name: "Social Media Strategy", percentage: 85 },
+      { name: "Content Repurposing", percentage: 85 }
     ]
   },
   {
-    category: "Programming",
-    icon: <Code2 className="w-6 h-6" />,
+    category: "AI Tools",
+    icon: <Bot className="w-6 h-6" />,
     skills: [
-      { name: "Java", percentage: 85 },
-      { name: "C#", percentage: 80 },
-      { name: "C", percentage: 75 },
-      { name: "OOP", percentage: 90 }
-    ]
-  },
-  {
-    category: "Web Development",
-    icon: <Globe className="w-6 h-6" />,
-    skills: [
-      { name: "HTML / CSS", percentage: 95 },
-      { name: "WordPress", percentage: 85 },
-      { name: "Hosting Setup", percentage: 80 }
+      { name: "ChatGPT / Gemini / Claude", percentage: 95 },
+      { name: "Notion (with Notion AI)", percentage: 85 },
+      { name: "Midjourney / Firefly", percentage: 90 },
+      { name: "Runway / Google Veo", percentage: 85 },
+      { name: "ElevenLabs / Descript", percentage: 90 },
+      { name: "LTX Studio / Figma AI", percentage: 85 }
     ]
   },
   {
     category: "Other",
     icon: <Sparkles className="w-6 h-6" />,
     skills: [
-      { name: "Video Editing", percentage: 95 },
-      { name: "UI Design", percentage: 85 },
-      { name: "Sound Sync", percentage: 80 },
-      { name: "Storyboarding", percentage: 85 }
+      { name: "Sound Design", percentage: 80 },
+      { name: "Color Grading", percentage: 85 },
+      { name: "Typography", percentage: 85 },
+      { name: "Visual Effects (VFX)", percentage: 80 },
+      { name: "AI Workflow Automation", percentage: 85 }
     ]
   }
 ];
 
 const SkillBar = ({ name, percentage }) => {
   const nodeRef = useRef(null);
-  
+
   const startAnimation = () => {
     animate(0, percentage, {
       duration: 1.5,
@@ -80,7 +80,7 @@ const SkillBar = ({ name, percentage }) => {
         <span ref={nodeRef} className="text-[#2BD764] font-bold font-sans text-sm">0%</span>
       </div>
       <div className="w-full h-2.5 bg-white/5 rounded-full overflow-hidden border border-white/5 relative">
-        <motion.div 
+        <motion.div
           className="absolute top-0 left-0 h-full bg-[#2BD764] rounded-full shadow-[0_0_15px_rgba(43,215,100,0.5)]"
           initial={{ width: 0 }}
           whileInView={{ width: `${percentage}%` }}
@@ -105,7 +105,7 @@ const Skills = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {skillCategories.map((group, idx) => (
-          <motion.div 
+          <motion.div
             key={idx}
             className="glass p-8 rounded-3xl border-t-4 border-t-transparent hover:border-t-[#2BD764] transition-all duration-300"
             initial={{ opacity: 0, y: 50 }}
@@ -119,7 +119,7 @@ const Skills = () => {
               </div>
               <h3 className="text-xl font-bold text-white uppercase tracking-wider">{group.category}</h3>
             </div>
-            
+
             <div className="flex flex-col">
               {group.skills.map((skill, i) => (
                 <SkillBar key={i} name={skill.name} percentage={skill.percentage} />

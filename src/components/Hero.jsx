@@ -94,7 +94,7 @@ const Hero = () => {
 
         {/* Quick Stats Bottom Bar */}
         <motion.div
-          className="mt-20 lg:mt-16 glass rounded-3xl p-8 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x-0 md:divide-x divide-white/10 relative z-20"
+          className="mt-20 lg:mt-16 glass rounded-3xl p-8 grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/10 relative z-20"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
@@ -104,16 +104,12 @@ const Hero = () => {
             <p className="text-sm text-gray-300 font-bold tracking-widest uppercase">Years Exp</p>
           </div>
           <div className="text-center px-4">
-            <h4 className="text-4xl font-extrabold text-[#2BD764] mb-2">50+</h4>
+            <h4 className="text-4xl font-extrabold text-[#2BD764] mb-2">200+</h4>
             <p className="text-sm text-gray-300 font-bold tracking-widest uppercase">Projects</p>
           </div>
           <div className="text-center px-4">
-            <h4 className="text-4xl font-extrabold text-[#2BD764] mb-2">10+</h4>
+            <h4 className="text-4xl font-extrabold text-[#2BD764] mb-2">90+</h4>
             <p className="text-sm text-gray-300 font-bold tracking-widest uppercase">Clients</p>
-          </div>
-          <div className="text-center px-4">
-            <h4 className="text-4xl font-extrabold text-[#2BD764] mb-2">Animator</h4>
-            <p className="text-sm text-gray-300 font-bold tracking-widest uppercase">Core Skills</p>
           </div>
         </motion.div>
 

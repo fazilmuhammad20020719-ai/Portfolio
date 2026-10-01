@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { 
-  Film, Play, MonitorPlay, Box, Globe, Zap, 
+  Film, Play, MonitorPlay, Box, Sparkles, Zap, 
   Smartphone, BookOpen, Clock, RefreshCw, CheckCircle2 
 } from 'lucide-react';
 
@@ -26,9 +26,9 @@ const services = [
     icon: <Box size={32} /> 
   },
   { 
-    title: 'Website Design', 
-    desc: 'Responsive, fast, and modern web applications built with React and Tailwind CSS.', 
-    icon: <Globe size={32} /> 
+    title: 'Visual Effects (VFX)', 
+    desc: 'Compositing, green screen removal, and advanced visual effects for film and commercials.', 
+    icon: <Sparkles size={32} /> 
   },
   { 
     title: 'Logo Animation', 
@@ -69,8 +69,8 @@ const packages = [
   {
     name: 'Enterprise',
     price: 'Custom',
-    description: 'Full-scale production for complex 3D projects or web apps.',
-    features: ['Unlimited Video Length', 'Complex 3D Animation', 'Full Web App Integration', 'Dedicated Strategy Call', 'Priority 24/7 Support'],
+    description: 'Full-scale production for complex 3D projects or commercial films.',
+    features: ['Unlimited Video Length', 'Complex 3D Animation', 'Custom Storyboarding', 'Dedicated Strategy Call', 'Priority 24/7 Support'],
     delivery: '14-30 Days',
     revisions: 'Unlimited Revisions',
     popular: false
@@ -83,7 +83,7 @@ const Services = () => {
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold mb-4">My <span className="text-[#2BD764]">Services</span></h2>
         <p className="text-lg text-gray-400 max-w-2xl mx-auto font-sans normal-case">
-          I provide end-to-end creative solutions, from dynamic motion graphics to full-stack web development.
+          I provide end-to-end creative solutions, from dynamic motion graphics to full-scale video production.
         </p>
       </div>
 
@@ -109,74 +109,7 @@ const Services = () => {
         ))}
       </div>
 
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold mb-4">Pricing <span className="text-[#2BD764]">Packages</span></h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto font-sans normal-case">
-          Transparent pricing designed to fit projects of any scale.
-        </p>
-      </div>
 
-      {/* Pricing Packages */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {packages.map((pkg, index) => (
-          <motion.div
-            key={index}
-            className={`relative glass p-10 rounded-3xl flex flex-col h-full border ${
-              pkg.popular ? 'border-[#2BD764] shadow-[0_0_30px_rgba(43,215,100,0.15)]' : 'border-white/5'
-            }`}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: index * 0.2 }}
-          >
-            {pkg.popular && (
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#2BD764] text-[#0a0a0e] px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
-                Most Popular
-              </div>
-            )}
-            
-            <h3 className="text-2xl font-bold uppercase mb-2 text-white">{pkg.name}</h3>
-            <div className="mb-4">
-              <span className="text-4xl font-extrabold text-[#2BD764]">{pkg.price}</span>
-            </div>
-            <p className="text-gray-400 font-sans normal-case text-sm mb-8 h-10">
-              {pkg.description}
-            </p>
-            
-            {/* Delivery & Revisions Info */}
-            <div className="flex flex-col gap-3 mb-8 p-4 bg-white/5 rounded-2xl">
-              <div className="flex items-center gap-3">
-                <Clock size={18} className="text-[#2BD764]" />
-                <span className="text-gray-200 font-sans text-sm font-semibold">Delivery: {pkg.delivery}</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <RefreshCw size={18} className="text-[#2BD764]" />
-                <span className="text-gray-200 font-sans text-sm font-semibold">Revisions: {pkg.revisions}</span>
-              </div>
-            </div>
-
-            <ul className="flex flex-col gap-4 mb-10 flex-grow">
-              {pkg.features.map((feature, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-[#2BD764] shrink-0 mt-0.5" />
-                  <span className="text-gray-300 font-sans text-sm">{feature}</span>
-                </li>
-              ))}
-            </ul>
-            
-            <a 
-              href="#contact" 
-              className={`w-full py-4 rounded-full font-bold uppercase text-sm tracking-widest transition-all text-center mt-auto ${
-                pkg.popular 
-                  ? 'bg-[#2BD764] text-[#0a0a0e] hover:bg-white' 
-                  : 'glass border border-[#2BD764] text-white hover:bg-[#2BD764] hover:text-[#0a0a0e]'
-              }`}
-            >
-              Choose {pkg.name}
-            </a>
-          </motion.div>
-        ))}
-      </div>
     </section>
   );
 };

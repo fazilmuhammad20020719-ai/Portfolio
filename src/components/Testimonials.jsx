@@ -113,42 +113,7 @@ const Testimonials = () => {
         ))}
       </div>
 
-      <div className="text-center mb-16">
-        <h3 className="text-3xl font-bold mb-4 uppercase">Real <span className="text-[#2BD764]">Feedback Screenshots</span></h3>
-        <p className="text-gray-400 max-w-2xl mx-auto font-sans normal-case">
-          Authenticity matters. Here are some raw, unedited reactions and reviews from my recent deliveries.
-        </p>
-      </div>
 
-      {/* Screenshots Grid (WhatsApp / Fiverr) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-5xl mx-auto">
-        {screenshots.map((shot, index) => (
-          <motion.div
-            key={index}
-            className="group relative"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: index * 0.2 }}
-          >
-            {/* Badge */}
-            <div className="absolute -top-4 left-4 z-20 bg-[#0a0a0e] border border-white/10 px-3 py-1.5 rounded-full flex items-center gap-2 shadow-xl shadow-black/50">
-              {shot.icon}
-              <span className="text-white text-xs font-bold uppercase tracking-wider">{shot.platform}</span>
-            </div>
-
-            {/* Screenshot Frame */}
-            <div className={`w-full ${shot.aspect} glass rounded-3xl overflow-hidden border-4 border-[#121218] group-hover:border-[#2BD764] transition-colors duration-500 shadow-2xl`}>
-              <img 
-                src={shot.image} 
-                alt={shot.platform} 
-                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-              />
-              <div className="absolute inset-0 bg-[#2BD764]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
     </section>
   );
 };

@@ -3,13 +3,13 @@ import { Download, GraduationCap, Briefcase, Award, Cpu, Mail, Phone, MapPin } f
 
 const education = [
   { 
-    year: '2023 - Present', 
-    degree: 'BSc. Information Technology', 
+    year: '2021 - Present', 
+    degree: 'BICT (Hons) Degree', 
     institution: 'Rajarata University of Sri Lanka',
-    desc: 'Focusing on core programming, software engineering, and interactive media design.'
+    desc: 'Focusing on digital media, interactive design, and visual communication.'
   },
   { 
-    year: '2019 - 2021', 
+    year: '2018 - 2020', 
     degree: 'G.C.E. Advanced Level', 
     institution: 'High School',
     desc: 'Completed studies with a strong foundation in analytical subjects and mathematics.'
@@ -18,16 +18,22 @@ const education = [
 
 const experience = [
   { 
-    year: '2024 - Present', 
-    role: 'Freelance Motion Designer', 
-    company: 'Global Clients (Fiverr / Upwork)', 
-    desc: 'Producing high-conversion promo videos, cinematic edits, and UI animations for a variety of international startups and creators.' 
+    year: '2025 - Present', 
+    role: 'Motion Graphics Designer & Video Editor', 
+    company: 'Wayond — Dubai, UAE | Remote', 
+    desc: 'Creating SaaS and promotional videos, website tutorials, educational content, animation videos, and podcast content for digital platforms.' 
   },
   { 
-    year: '2023 - 2024', 
-    role: 'Video Editor & Tech Specialist', 
-    company: 'IS6FX Financial', 
-    desc: 'Created educational tutorials, software promos, and managed the visual branding for their MT4 trading platform.' 
+    year: '2024 - 2025', 
+    role: 'Junior Motion Graphics Designer', 
+    company: 'IS6FX — Forex Broker | Remote', 
+    desc: 'Created advanced motion graphics, promotional campaigns, website tutorials, and educational trading content.' 
+  },
+  { 
+    year: '2023 - Present', 
+    role: 'Freelance Video Editor', 
+    company: 'Fiverr | Remote', 
+    desc: 'Created 100+ videos for clients worldwide, including promotional videos for crypto businesses, apps, NFTs, and digital products.' 
   }
 ];
 
@@ -36,13 +42,14 @@ const software = [
   { name: 'Premiere Pro', level: '90%' },
   { name: 'DaVinci Resolve', level: '85%' },
   { name: 'Blender (3D)', level: '80%' },
-  { name: 'Java & OOP', level: '85%' },
-  { name: 'React & Tailwind', level: '90%' }
+  { name: 'Photoshop', level: '90%' },
+  { name: 'Figma & AI Tools', level: '90%' }
 ];
 
 const certifications = [
   'Advanced Motion Graphics Masterclass',
-  'Full Stack Web Development Bootcamp',
+  'Professional Video Editing Certification',
+  'Generative AI for Content Creation',
   '3D Character Animation in Blender'
 ];
 

@@ -88,6 +88,11 @@ const About = () => {
                   <span className="px-3 py-1 glass rounded-full text-xs text-gray-300 font-sans">Gaming</span>
                   <span className="px-3 py-1 glass rounded-full text-xs text-gray-300 font-sans">3D Modeling</span>
                   <span className="px-3 py-1 glass rounded-full text-xs text-gray-300 font-sans">Photography</span>
+                  <span className="px-3 py-1 glass rounded-full text-xs text-gray-300 font-sans">Digital Art</span>
+                  <span className="px-3 py-1 glass rounded-full text-xs text-gray-300 font-sans">Exploring Tech</span>
+                  <span className="px-3 py-1 glass rounded-full text-xs text-gray-300 font-sans">Watching Movies</span>
+                  <span className="px-3 py-1 glass rounded-full text-xs text-gray-300 font-sans">Traveling</span>
+                  <span className="px-3 py-1 glass rounded-full text-xs text-gray-300 font-sans">Fitness</span>
                 </div>
               </div>
               
