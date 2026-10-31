@@ -1,3 +1,4 @@
+import SectionHeader from './SectionHeader';
 import { motion } from 'framer-motion';
 import { 
   Film, Play, MonitorPlay, Box, Sparkles, Zap, 
@@ -80,12 +81,12 @@ const packages = [
 const Services = () => {
   return (
     <section id="services" className="py-32 container mx-auto px-6 max-w-7xl">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">My <span className="text-[#2BD764]">Services</span></h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto font-sans normal-case">
-          I provide end-to-end creative solutions, from dynamic motion graphics to full-scale video production.
-        </p>
-      </div>
+      <SectionHeader
+        eyebrow="What I Do"
+        title="My"
+        accent="Services"
+        subtitle="I provide end-to-end creative solutions, from dynamic motion graphics to full-scale video production."
+      />
 
       {/* Services Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">

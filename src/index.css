@@ -1,30 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap');
 @import "tailwindcss";
 
 @theme {
   --color-bg-primary: #0a0a0e;
   --color-bg-secondary: #121218;
   --color-accent-primary: #2BD764;
-  
-  --font-sans: 'Oswald', sans-serif;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Oswald', sans-serif;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
-  
+
   body {
     background-color: var(--color-bg-primary);
+    background-image:
+      radial-gradient(ellipse 60% 40% at 10% 0%, rgba(43, 215, 100, 0.07), transparent 70%),
+      radial-gradient(ellipse 50% 35% at 90% 45%, rgba(43, 215, 100, 0.04), transparent 70%);
+    background-attachment: fixed;
     color: white;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
     text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    background: var(--color-accent-primary);
+    color: var(--color-bg-primary);
+  }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--color-accent-primary);
+    outline-offset: 3px;
   }
 }
 
@@ -32,18 +50,42 @@
   .text-gradient {
     color: var(--color-accent-primary);
   }
-  
+
   .text-stroke {
     -webkit-text-stroke: 1.5px var(--color-accent-primary);
   }
-  
+
   .glass {
-    background: rgba(255, 255, 255, 0.05);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
+
+  /* Animated grid used behind the hero and as the reel placeholder */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+    animation: grid-drift 20s linear infinite;
+  }
+
+  .mask-fade-radial {
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 100%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 100%);
+  }
+}
+
+@keyframes grid-drift {
+  from { background-position: 0 0; }
+  to { background-position: 64px 64px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .bg-grid { animation: none; }
 }
 
 /* Custom Scrollbar */
@@ -56,7 +98,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-bg-secondary);
+  background: #2a2a33;
   border-radius: 4px;
 }
 

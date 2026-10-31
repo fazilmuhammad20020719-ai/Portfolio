@@ -1,3 +1,4 @@
+import SectionHeader from './SectionHeader';
 import { motion } from 'framer-motion';
 import { Download, GraduationCap, Target, Coffee, Globe, Heart } from 'lucide-react';
 
@@ -30,12 +31,12 @@ const timeline = [
 const About = () => {
   return (
     <section id="about" className="py-32 container mx-auto px-6 max-w-6xl">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">About <span className="text-[#2BD764]">Me</span></h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto font-sans normal-case">
-          My story, goals, and the journey that brought me here.
-        </p>
-      </div>
+      <SectionHeader
+        eyebrow="About"
+        title="About"
+        accent="Me"
+        subtitle="My story, goals, and the journey that brought me here."
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
         
@@ -53,7 +54,7 @@ const About = () => {
                 Hi, I’m Fazil Muhammad. I have a BICT (Hons) degree from Rajarata University of Sri Lanka.
               </p>
               <p>
-                I’m a Motion Graphics Designer and Video Editor with around five years of experience. I specialize in motion graphics, promotional videos, SaaS promotional and product videos, social media content, and tutorial videos.
+                I’m a Motion Graphics Designer and Video Editor with 3+ years of experience. I specialize in motion graphics, promotional videos, SaaS promotional and product videos, social media content, and tutorial videos.
               </p>
               <p>
                 I specialize in turning software features and ideas into clear, engaging visual stories through motion graphics and animation. I mainly work with After Effects, Premiere Pro, DaVinci Resolve, Blender, Figma, and AI tools.

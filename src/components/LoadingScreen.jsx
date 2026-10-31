@@ -11,7 +11,7 @@ const LoadingScreen = () => {
     const timer = setTimeout(() => {
       setIsLoading(false);
       document.body.style.overflow = 'auto';
-    }, 2500);
+    }, 1500);
 
     return () => {
       clearTimeout(timer);
@@ -34,10 +34,10 @@ const LoadingScreen = () => {
             <motion.div
               initial={{ scale: 0.8, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="text-4xl md:text-6xl font-black tracking-tighter uppercase text-white mb-6 flex items-center gap-2"
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              className="font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold tracking-tight uppercase text-white mb-6 flex items-center"
             >
-              Portfolio<span className="text-[#2BD764]">.</span>
+              Fazil<span className="text-[#2BD764]">.</span>
             </motion.div>
 
             {/* Cinematic Progress Bar */}
@@ -45,7 +45,7 @@ const LoadingScreen = () => {
               <motion.div
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
+                transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
                 className="absolute top-0 left-0 h-full bg-[#2BD764] shadow-[0_0_10px_#2BD764]"
               />
             </div>
@@ -54,10 +54,10 @@ const LoadingScreen = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              className="mt-4 text-[#2BD764] text-[10px] uppercase tracking-[0.3em] font-bold"
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-4 text-gray-400 text-[10px] uppercase tracking-[0.4em] font-semibold"
             >
-              Initializing Experience
+              Motion · Video · AI
             </motion.p>
           </div>
         </motion.div>

@@ -1,5 +1,9 @@
+import SectionHeader from './SectionHeader';
 import { motion } from 'framer-motion';
 import { Play, Film } from 'lucide-react';
+
+// Path or URL of the main demo reel video (e.g. '/showreel.mp4' in /public). Leave empty to show the animated placeholder.
+const DEMO_REEL_SRC = '';
 
 const gallerySections = [
   {
@@ -69,12 +73,12 @@ const VideoCard = ({ title, src, delay }) => (
 const Showreel = () => {
   return (
     <section id="showreel" className="py-32 container mx-auto px-6 max-w-7xl">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">Video <span className="text-[#2BD764]">Showreel</span></h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto font-sans normal-case">
-          A dedicated gallery showcasing my best edits, cinematic sequences, and motion graphics.
-        </p>
-      </div>
+      <SectionHeader
+        eyebrow="Showreel"
+        title="Video"
+        accent="Showreel"
+        subtitle="A dedicated gallery showcasing my best edits, cinematic sequences, and motion graphics."
+      />
 
       {/* Main Auto-Playing Demo Reel */}
       <motion.div 
@@ -84,15 +88,23 @@ const Showreel = () => {
         viewport={{ once: true }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
       >
-        {/* Placeholder Abstract Tech Video */}
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          src="https://assets.mixkit.co/videos/preview/mixkit-abstract-digital-grid-loop-21153-large.mp4"
-        ></video>
+        {DEMO_REEL_SRC ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            src={DEMO_REEL_SRC}
+          ></video>
+        ) : (
+          // Animated placeholder until a real demo reel is added
+          <div className="absolute inset-0 bg-[#0a0a0e] transition-transform duration-700 group-hover:scale-105">
+            <div className="absolute inset-0 bg-grid opacity-60"></div>
+            <div className="absolute -top-1/4 -left-1/4 w-2/3 h-2/3 rounded-full bg-[#2BD764]/20 blur-[100px]"></div>
+            <div className="absolute -bottom-1/4 -right-1/4 w-2/3 h-2/3 rounded-full bg-[#2BD764]/10 blur-[100px]"></div>
+          </div>
+        )}
         
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>

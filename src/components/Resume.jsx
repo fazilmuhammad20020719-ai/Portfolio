@@ -1,3 +1,4 @@
+import SectionHeader from './SectionHeader';
 import { motion } from 'framer-motion';
 import { Download, GraduationCap, Briefcase, Award, Cpu, Mail, Phone, MapPin } from 'lucide-react';
 
@@ -62,24 +63,23 @@ const contactInfo = [
 const Resume = () => {
   return (
     <section id="resume" className="py-32 container mx-auto px-6 max-w-6xl">
-      <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
-        <div className="text-center md:text-left">
-          <h2 className="text-4xl font-bold mb-2">My <span className="text-[#2BD764]">Resume</span></h2>
-          <p className="text-lg text-gray-400 font-sans normal-case">
-            A summary of my academic background and professional experience.
-          </p>
-        </div>
-        
+      <SectionHeader
+        eyebrow="Resume"
+        title="My"
+        accent="Resume"
+        subtitle="A summary of my academic background and professional experience."
+        align="left"
+      >
         {/* Download Button */}
         <motion.a 
           href="#" 
-          className="flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all bg-[#2BD764] text-[#0a0a0e] hover:bg-white hover:-translate-y-1 uppercase text-sm tracking-wider shadow-[0_0_20px_rgba(43,215,100,0.3)]"
+          className="flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all bg-[#2BD764] text-[#0a0a0e] hover:bg-white hover:-translate-y-1 uppercase text-sm tracking-wider shadow-[0_0_20px_rgba(43,215,100,0.3)] self-center md:self-auto shrink-0"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           Download PDF <Download size={18} />
         </motion.a>
-      </div>
+      </SectionHeader>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         

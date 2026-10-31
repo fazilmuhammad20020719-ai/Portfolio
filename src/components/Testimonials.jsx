@@ -1,3 +1,4 @@
+import SectionHeader from './SectionHeader';
 import { motion } from 'framer-motion';
 import { Star, MessageCircle, ShoppingBag, Quote } from 'lucide-react';
 
@@ -52,12 +53,12 @@ const screenshots = [
 const Testimonials = () => {
   return (
     <section id="testimonials" className="py-32 container mx-auto px-6 max-w-7xl">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">Client <span className="text-[#2BD764]">Testimonials</span></h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto font-sans normal-case">
-          Real feedback from founders, creators, and agencies I have worked with around the globe.
-        </p>
-      </div>
+      <SectionHeader
+        eyebrow="Testimonials"
+        title="Client"
+        accent="Testimonials"
+        subtitle="Real feedback from founders, creators, and agencies I have worked with around the globe."
+      />
 
       {/* Trusted By / Client Logos Banner */}
       <motion.div 

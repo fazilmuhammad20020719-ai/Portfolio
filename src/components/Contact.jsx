@@ -1,12 +1,15 @@
+import SectionHeader from './SectionHeader';
 import { motion } from 'framer-motion';
 import { Mail, MessageCircle, MapPin, Send, Globe, Smartphone, Film } from 'lucide-react';
 
+const CONTACT_EMAIL = 'hello@yourdomain.com';
+
 const contactDetails = [
-  { 
-    icon: <Mail size={24} />, 
-    title: 'Email', 
-    value: 'hello@yourdomain.com', 
-    link: 'mailto:hello@yourdomain.com' 
+  {
+    icon: <Mail size={24} />,
+    title: 'Email',
+    value: CONTACT_EMAIL,
+    link: `mailto:${CONTACT_EMAIL}`
   },
   { 
     icon: <MessageCircle size={24} />, 
@@ -29,15 +32,24 @@ const socials = [
   { icon: <Mail size={20} />, href: '#' }
 ];
 
+// No backend: opens the visitor's email app with the form contents filled in
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const data = new FormData(e.currentTarget);
+  const subject = data.get('subject') || 'Project Inquiry';
+  const body = `${data.get('message')}\n\n— ${data.get('name')} (${data.get('email')})`;
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};
+
 const Contact = () => {
   return (
     <section id="contact" className="py-32 container mx-auto px-6 max-w-7xl relative">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">Get In <span className="text-[#2BD764]">Touch</span></h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto font-sans normal-case">
-          Ready to start your next project? Drop me a message and let's create something amazing together.
-        </p>
-      </div>
+      <SectionHeader
+        eyebrow="Contact"
+        title="Get In"
+        accent="Touch"
+        subtitle="Ready to start your next project? Drop me a message and let's create something amazing together."
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
         
@@ -102,13 +114,15 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
         >
-          <form className="glass p-8 md:p-12 rounded-3xl border border-white/5 shadow-2xl flex flex-col gap-6">
+          <form onSubmit={handleSubmit} className="glass p-8 md:p-12 rounded-3xl border border-white/5 shadow-2xl flex flex-col gap-6">
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-3">
                 <label className="text-xs font-bold text-gray-300 uppercase tracking-widest pl-2">Your Name</label>
                 <input 
-                  type="text" 
+                  type="text"
+                  name="name"
+                  required
                   className="w-full bg-black/40 border border-white/10 rounded-2xl px-5 py-4 text-white font-sans focus:outline-none focus:border-[#2BD764] focus:ring-1 focus:ring-[#2BD764] transition-all placeholder:text-gray-600" 
                   placeholder="John Doe" 
                 />
@@ -116,7 +130,9 @@ const Contact = () => {
               <div className="flex flex-col gap-3">
                 <label className="text-xs font-bold text-gray-300 uppercase tracking-widest pl-2">Your Email</label>
                 <input 
-                  type="email" 
+                  type="email"
+                  name="email"
+                  required
                   className="w-full bg-black/40 border border-white/10 rounded-2xl px-5 py-4 text-white font-sans focus:outline-none focus:border-[#2BD764] focus:ring-1 focus:ring-[#2BD764] transition-all placeholder:text-gray-600" 
                   placeholder="john@example.com" 
                 />
@@ -126,7 +142,8 @@ const Contact = () => {
             <div className="flex flex-col gap-3">
               <label className="text-xs font-bold text-gray-300 uppercase tracking-widest pl-2">Subject</label>
               <input 
-                type="text" 
+                type="text"
+                name="subject"
                 className="w-full bg-black/40 border border-white/10 rounded-2xl px-5 py-4 text-white font-sans focus:outline-none focus:border-[#2BD764] focus:ring-1 focus:ring-[#2BD764] transition-all placeholder:text-gray-600" 
                 placeholder="Project Inquiry" 
               />
@@ -136,13 +153,15 @@ const Contact = () => {
               <label className="text-xs font-bold text-gray-300 uppercase tracking-widest pl-2">Message</label>
               <textarea 
                 rows="5"
+                name="message"
+                required
                 className="w-full bg-black/40 border border-white/10 rounded-2xl px-5 py-4 text-white font-sans focus:outline-none focus:border-[#2BD764] focus:ring-1 focus:ring-[#2BD764] transition-all placeholder:text-gray-600 resize-none" 
                 placeholder="Tell me about your project..." 
               ></textarea>
             </div>
 
             <button 
-              type="button"
+              type="submit"
               className="w-full bg-[#2BD764] text-[#0a0a0e] font-extrabold uppercase tracking-widest py-5 rounded-2xl flex items-center justify-center gap-3 hover:bg-white transition-colors group"
             >
               Send Message

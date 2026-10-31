@@ -1,3 +1,4 @@
+import SectionHeader from './SectionHeader';
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
 
@@ -31,10 +32,12 @@ const projects = [
 const Projects = () => {
   return (
     <section id="projects" className="py-32 container mx-auto px-6 max-w-6xl">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">Selected <span className="text-gradient">Projects</span></h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto">A showcase of my recent work and technical experiments.</p>
-      </div>
+      <SectionHeader
+        eyebrow="Portfolio"
+        title="Selected"
+        accent="Projects"
+        subtitle="A showcase of my recent work and technical experiments."
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((project, index) => (

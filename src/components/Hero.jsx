@@ -1,117 +1,95 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Briefcase, Mail } from 'lucide-react';
-import heroImg from '../assets/hero.png';
+import { ArrowRight, Briefcase, ChevronDown } from 'lucide-react';
+// Starts the entrance animations as the loading screen fades out
+const INTRO_DELAY = 1.3;
+
+const stats = [
+  { value: '03+', label: 'Years Exp' },
+  { value: '200+', label: 'Projects' },
+  { value: '90+', label: 'Clients' }
+];
 
 const Hero = () => {
   const { scrollY } = useScroll();
   const yBg = useTransform(scrollY, [0, 1000], [0, 300]);
 
-  return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden pt-20">
+  const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 40 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: INTRO_DELAY + delay }
+  });
 
-      {/* Background Video with Parallax */}
-      <motion.div style={{ y: yBg }} className="absolute inset-0 w-full h-[120%] -top-[10%] z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover opacity-30"
-          src="https://assets.mixkit.co/videos/preview/mixkit-abstract-digital-grid-loop-21153-large.mp4"
-        ></video>
-        {/* Dark overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-[#0a0a0e]/70"></div>
+  return (
+    <section id="home" className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden pt-28 pb-16">
+
+      {/* Animated grid background with parallax */}
+      <motion.div style={{ y: yBg }} className="absolute inset-0 w-full h-[120%] -top-[10%] z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-grid mask-fade-radial"></div>
+        <div className="absolute top-[18%] left-1/2 -translate-x-1/2 w-[700px] max-w-[90vw] h-[420px] rounded-full bg-[#2BD764]/10 blur-[120px]"></div>
       </motion.div>
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 w-full mt-10 lg:mt-0">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 w-full">
+        <div className="flex flex-col items-center text-center">
 
-          {/* Main Content */}
-          <div className="lg:col-span-12 flex flex-col items-center text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            >
-              {/* Kicker Name */}
-              <div className="flex items-center mb-4 justify-center">
-                <p className="text-[#2BD764] font-bold tracking-[0.2em] text-sm uppercase">
-                  S. Fazil Muhammad
-                </p>
-              </div>
+          {/* Availability badge */}
+          <motion.div {...fadeUp(0)} className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#2BD764]/30 bg-[#2BD764]/10 mb-8">
+            <span className="relative flex w-2 h-2">
+              <span className="absolute inline-flex w-full h-full rounded-full bg-[#2BD764] opacity-75 animate-ping"></span>
+              <span className="relative inline-flex w-2 h-2 rounded-full bg-[#2BD764]"></span>
+            </span>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-200">Available for new projects</span>
+          </motion.div>
 
-              <h1 className="text-[clamp(3rem,5vw,5.5rem)] font-extrabold leading-[1.1] mb-6 uppercase tracking-tight text-white">
-                Motion Graphics Designer
-                <br />
-                Video Editor
-              </h1>
+          {/* Kicker Name */}
+          <motion.p {...fadeUp(0.1)} className="text-[#2BD764] font-semibold tracking-[0.35em] text-sm uppercase mb-5">
+            S. Fazil Muhammad
+          </motion.p>
 
-              <p className="text-xl text-gray-300 max-w-2xl mb-10 mx-auto font-sans normal-case">
-                I specialize in bringing ideas to life through dynamic motion design, 3D animation, and visual storytelling + AI. Transforming complex concepts into visually stunning realities.
-              </p>
+          <motion.h1 {...fadeUp(0.2)} className="text-[clamp(2.25rem,6vw,5.5rem)] font-bold leading-[1.05] mb-8 uppercase tracking-tight text-white text-balance">
+            <span className="block">Motion Graphics Designer</span>
+            <span className="block text-[#2BD764]">
+              <span className="font-['Cinzel_Decorative'] font-bold normal-case text-white/80 mr-[0.15em]">&amp;</span> Video Editor
+            </span>
+          </motion.h1>
 
-              <div className="flex flex-wrap justify-center gap-4 mb-16 lg:mb-0">
-                <a href="#projects" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all bg-[#2BD764] text-[#0a0a0e] hover:bg-white hover:-translate-y-1 uppercase text-sm tracking-wider">
-                  View Portfolio <ArrowRight size={18} />
-                </a>
-                <a href="#contact" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all glass text-white border border-[#2BD764] hover:bg-[#2BD764] hover:text-[#0a0a0e] hover:-translate-y-1 uppercase text-sm tracking-wider">
-                  Hire Me <Briefcase size={18} />
-                </a>
-                <a href="#contact" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all glass text-white hover:bg-white/10 hover:-translate-y-1 uppercase text-sm tracking-wider">
-                  Contact Me <Mail size={18} />
-                </a>
-              </div>
-            </motion.div>
-          </div>
+          <motion.p {...fadeUp(0.3)} className="text-base md:text-lg text-gray-300 max-w-2xl mb-10 mx-auto leading-relaxed">
+            I create motion graphics, 3D animation, and videos that turn complex ideas into clear, engaging stories. With an AI-powered workflow built on 3+ years of craft, I deliver faster turnarounds with precision and polish in every frame.
+          </motion.p>
 
-          {/* Right Column: Profile Picture & Name */}
-          <div className="hidden lg:col-span-5 flex-col items-center justify-center relative">
-            <motion.div
-              className="relative w-full flex justify-center mt-8 lg:mt-0"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            >
-              <div className="w-[360px] md:w-[460px] lg:w-[800px] relative flex justify-center items-end">
-                {/* Soft Radial Glow */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(43,215,100,0.15)_0%,transparent_60%)] z-0"></div>
-
-                <img
-                  src={heroImg}
-                  alt="S.Fazil Muhammad"
-                  className="hidden w-full h-auto object-contain relative z-10"
-                  style={{
-                    filter: 'grayscale(30%) drop-shadow(0px 10px 30px rgba(0,0,0,0.6))',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
-                    maskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)'
-                  }}
-                />
-              </div>
-            </motion.div>
-          </div>
-
+          <motion.div {...fadeUp(0.4)} className="flex flex-wrap justify-center gap-4">
+            <a href="#showreel" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all bg-[#2BD764] text-[#0a0a0e] hover:bg-white hover:-translate-y-1 uppercase text-sm tracking-wider shadow-[0_0_30px_rgba(43,215,100,0.35)]">
+              Watch My Work <ArrowRight size={18} />
+            </a>
+            <a href="#contact" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all glass text-white border border-white/15 hover:border-[#2BD764] hover:text-[#2BD764] hover:-translate-y-1 uppercase text-sm tracking-wider">
+              Hire Me <Briefcase size={18} />
+            </a>
+          </motion.div>
         </div>
 
         {/* Quick Stats Bottom Bar */}
         <motion.div
-          className="mt-20 lg:mt-16 glass rounded-3xl p-8 grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/10 relative z-20"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+          {...fadeUp(0.55)}
+          className="mt-20 max-w-4xl mx-auto glass rounded-3xl p-8 grid grid-cols-3 gap-4 divide-x divide-white/10"
         >
-          <div className="text-center px-4">
-            <h4 className="text-4xl font-extrabold text-[#2BD764] mb-2">03+</h4>
-            <p className="text-sm text-gray-300 font-bold tracking-widest uppercase">Years Exp</p>
-          </div>
-          <div className="text-center px-4">
-            <h4 className="text-4xl font-extrabold text-[#2BD764] mb-2">200+</h4>
-            <p className="text-sm text-gray-300 font-bold tracking-widest uppercase">Projects</p>
-          </div>
-          <div className="text-center px-4">
-            <h4 className="text-4xl font-extrabold text-[#2BD764] mb-2">90+</h4>
-            <p className="text-sm text-gray-300 font-bold tracking-widest uppercase">Clients</p>
-          </div>
+          {stats.map((stat) => (
+            <div key={stat.label} className="text-center px-2">
+              <h4 className="text-3xl md:text-5xl font-bold text-[#2BD764] mb-2">{stat.value}</h4>
+              <p className="text-[11px] md:text-xs text-gray-400 font-semibold tracking-[0.2em] uppercase">{stat.label}</p>
+            </div>
+          ))}
         </motion.div>
+
+        {/* Scroll cue */}
+        <motion.a
+          href="#showreel"
+          aria-label="Scroll to showreel"
+          className="hidden md:flex mx-auto mt-12 w-10 h-10 rounded-full border border-white/15 items-center justify-center text-gray-400 hover:text-[#2BD764] hover:border-[#2BD764] transition-colors"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 6, 0] }}
+          transition={{ opacity: { delay: INTRO_DELAY + 0.8 }, y: { duration: 2, repeat: Infinity, ease: 'easeInOut' } }}
+        >
+          <ChevronDown size={18} />
+        </motion.a>
 
       </div>
     </section>

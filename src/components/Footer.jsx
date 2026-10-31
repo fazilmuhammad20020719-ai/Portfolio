@@ -1,4 +1,4 @@
-import { ArrowUp, Mail, Globe, Smartphone, Film } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, Mail, Globe, Smartphone, Film } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -6,21 +6,33 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0a0a0e] border-t border-white/10 pt-20 pb-10 mt-32 relative overflow-hidden">
+    <footer className="bg-[#0a0a0e] border-t border-white/10 pt-20 pb-10 mt-16 relative overflow-hidden">
       {/* Background Subtle Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-[radial-gradient(ellipse_at_bottom,rgba(43,215,100,0.05)_0%,transparent_70%)] z-0 pointer-events-none"></div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
+
+        {/* Closing call to action */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-16 mb-16 border-b border-white/10">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] text-white">
+            Have a project in mind?<br />
+            <span className="text-[#2BD764]">Let's make it move.</span>
+          </h2>
+          <a href="#contact" className="inline-flex items-center gap-2 self-start md:self-auto px-8 py-4 rounded-full font-bold transition-all bg-[#2BD764] text-[#0a0a0e] hover:bg-white hover:-translate-y-1 uppercase text-sm tracking-wider shrink-0">
+            Start a Project <ArrowUpRight size={18} />
+          </a>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          
+
           {/* Brand & Email */}
           <div className="md:col-span-1">
-            <h2 className="text-2xl font-black tracking-tighter mb-4 text-white uppercase">Portfolio<span className="text-[#2BD764]">.</span></h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-4 text-white uppercase">Fazil<span className="text-[#2BD764]">.</span></h2>
             <p className="text-gray-400 font-sans text-sm leading-relaxed mb-6 max-w-xs">
-              Specializing in cinematic motion design, 3D animation, and visually stunning video productions.
+              Motion graphics, 3D animation, and video editing powered by an AI-driven workflow.
             </p>
-            <a href="mailto:hello@johndoe.com" className="inline-flex items-center gap-3 text-white font-bold hover:text-[#2BD764] transition-colors border-b border-transparent hover:border-[#2BD764] pb-1">
-              <Mail size={16} className="text-[#2BD764]" /> hello@johndoe.com
+            <a href="mailto:hello@yourdomain.com" className="inline-flex items-center gap-3 text-white font-bold hover:text-[#2BD764] transition-colors border-b border-transparent hover:border-[#2BD764] pb-1">
+              <Mail size={16} className="text-[#2BD764]" /> hello@yourdomain.com
             </a>
           </div>
 
@@ -29,9 +41,9 @@ const Footer = () => {
             <h3 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Quick Links</h3>
             <ul className="flex flex-col gap-3 font-sans text-gray-400 text-sm">
               <li><a href="#home" className="hover:text-[#2BD764] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/20"></span> Home</a></li>
-              <li><a href="#about" className="hover:text-[#2BD764] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/20"></span> About</a></li>
-              <li><a href="#skills" className="hover:text-[#2BD764] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/20"></span> Skills</a></li>
+              <li><a href="#showreel" className="hover:text-[#2BD764] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/20"></span> Showreel</a></li>
               <li><a href="#projects" className="hover:text-[#2BD764] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/20"></span> Portfolio</a></li>
+              <li><a href="#services" className="hover:text-[#2BD764] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/20"></span> Services</a></li>
               <li><a href="#contact" className="hover:text-[#2BD764] transition-colors flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-white/20"></span> Contact</a></li>
             </ul>
           </div>
@@ -40,9 +52,9 @@ const Footer = () => {
           <div className="md:col-span-1">
              <h3 className="text-white font-bold uppercase tracking-widest mb-6 text-sm">Resources</h3>
              <ul className="flex flex-col gap-3 font-sans text-gray-400 text-sm">
-               <li><a href="#services" className="hover:text-[#2BD764] transition-colors">Services & Pricing</a></li>
-               <li><a href="#showreel" className="hover:text-[#2BD764] transition-colors">Showreel / Videos</a></li>
                <li><a href="#testimonials" className="hover:text-[#2BD764] transition-colors">Client Reviews</a></li>
+               <li><a href="#about" className="hover:text-[#2BD764] transition-colors">About Me</a></li>
+               <li><a href="#skills" className="hover:text-[#2BD764] transition-colors">Skills</a></li>
                <li><a href="#resume" className="hover:text-[#2BD764] transition-colors">Resume & CV</a></li>
              </ul>
           </div>
@@ -61,7 +73,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="border-t border-white/10 pt-8 pb-16 md:pb-0 md:pr-20 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 font-sans text-xs uppercase tracking-widest font-bold">
             © {new Date().getFullYear()} S. Fazil Muhammad. All rights reserved.
           </p>

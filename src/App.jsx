@@ -7,7 +7,6 @@ import Services from './components/Services';
 import Showreel from './components/Showreel';
 import Testimonials from './components/Testimonials';
 import Resume from './components/Resume';
-import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
@@ -23,14 +22,13 @@ function App() {
       
       <main className="flex-1">
         <Hero />
-        <About />
-        <Skills />
+        <Showreel />
         <Projects />
         <Services />
-        <Showreel />
         <Testimonials />
+        <About />
+        <Skills />
         <Resume />
-        <Blog />
         <Contact />
       </main>
       

@@ -1,3 +1,4 @@
+import SectionHeader from './SectionHeader';
 import { motion, animate } from 'framer-motion';
 import { useRef } from 'react';
 import { Film, Palette, PenTool, Bot, Sparkles } from 'lucide-react';
@@ -96,12 +97,12 @@ const SkillBar = ({ name, percentage }) => {
 const Skills = () => {
   return (
     <section id="skills" className="py-32 container mx-auto px-6 max-w-6xl">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">Technical <span className="text-[#2BD764]">Skills</span></h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto font-sans normal-case">
-          A comprehensive breakdown of my expertise across different creative and technical domains.
-        </p>
-      </div>
+      <SectionHeader
+        eyebrow="Expertise"
+        title="Technical"
+        accent="Skills"
+        subtitle="A comprehensive breakdown of my expertise across different creative and technical domains."
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {skillCategories.map((group, idx) => (
